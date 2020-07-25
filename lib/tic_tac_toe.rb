@@ -69,33 +69,33 @@ WIN_COMBINATIONS = [
 
   def full?
   @board.all?{|token| token == "X" || token == "O"}
-end
-
-def draw?
-  full? && !won?
-end
-
-def over?
- won? || full? || draw?
-end
-
-def winner
-  if winning_combo = won?
-    @board[winning_combo.first]
-  end
-end
-
-def play
-  until over? do
-  turn
   end
 
-  if won?
-    puts "Congratulations #{winner}!"
-  else
-    puts "Cat's Game!"
+  def draw?
+    full? && !won?
   end
 
-end
+  def over?
+   won? || full? || draw?
+  end
+
+  def winner
+    if winning_combo = won?
+      @board[winning_combo.first]
+    end
+  end
+
+  def play
+    until over? do
+    turn
+    end
+
+    if won?
+      puts "Congratulations #{winner}!"
+    else
+      puts "Cat's Game!"
+    end
+
+  end
 
 end
